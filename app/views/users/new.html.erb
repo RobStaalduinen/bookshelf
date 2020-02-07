@@ -1,0 +1,25 @@
+<div>
+  <%= form_with model: @user do |f| %>
+    <b><%= f.label(:email, 'Email') %></b>
+    <%= f.text_field(:email) %>
+
+    <br />
+
+    <b><%= f.label(:name, 'Name') %></b>
+    <%= f.text_field(:name) %>
+
+    <br />
+
+    <b><%= f.label(:password, 'Password') %></b>
+    <%= f.password_field(:password) %>
+
+    <br />
+
+    <b><%= f.label(:password_confirmation, 'Confirm Password') %></b>
+    <%= f.password_field(:password_confirmation) %>
+
+    <br />
+
+    <%= f.submit("Create User") %>
+  <% end %>
+</div>
