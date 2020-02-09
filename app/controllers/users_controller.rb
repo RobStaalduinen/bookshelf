@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :new, :create ]
 
   def new
     @user = User.new
@@ -8,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      log_in_user(@user)
       redirect_to user_path(@user)
     else
       render :new

@@ -121,3 +121,11 @@ RSpec.configure do |config|
 #   DatabaseCleaner.clean
 # end
 end
+
+def log_in_user(user)
+  allow_any_instance_of(ApplicationController).to receive(:current_user) { user }
+end
+
+def log_out_all
+  allow_any_instance_of(ApplicationController).to receive(:current_user) { nil }
+end  

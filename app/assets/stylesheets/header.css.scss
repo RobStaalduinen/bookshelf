@@ -1,0 +1,12 @@
+#header {
+  width: 100%;
+  padding: 8px 0;;
+}
+
+#header-inner {
+  max-width: 960px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 auto;
+}

@@ -1,5 +1,21 @@
 describe UsersController do
+  let(:user) { create(:user) }
   
+  before do
+    log_in_user(user)
+  end
+
+  describe "authentication" do
+    before do
+      log_out_all
+    end
+
+    it "redirects #show if unauthenticated" do
+      get :show, params: { id: user.id }
+      should redirect_to(login_path)
+    end
+  end
+
   describe "#new" do
     it "renders the new template" do
       get :new
@@ -52,8 +68,6 @@ describe UsersController do
     end
 
     context "with existing user" do
-      let(:user) { create(:user) }
-
       it "renders the show template" do
         get :show, params: { id: user.id }
         expect(response).to render_template(:show)

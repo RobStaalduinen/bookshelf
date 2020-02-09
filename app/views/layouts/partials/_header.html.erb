@@ -1,0 +1,15 @@
+<div id="header">
+  <div id="header-inner">
+    <div>
+      <h3>My Bookshelf</h3>
+    </div>
+
+    <div>
+      <% if logged_in? %>
+        <%= link_to "Log Out", '/log_out' %>
+      <% else %>
+        <%= link_to "Log In", '/login' %>
+      <% end %>
+    </div>
+  </div>
+</div>
